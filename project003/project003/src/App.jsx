@@ -1,6 +1,8 @@
 import Concept from './Concept';
 import reactImg from './assets/react-core-concepts.png'
 import componentImg from './assets/components.png'
+import { CORE_CONCEPTS } from './data';
+import TabButton from './TabButton';
 
 const reactDescription = ['Fundamental', 'Crucial', 'Core'];
 
@@ -24,17 +26,21 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            <Concept 
-            title="Component" 
-            description="The core ui building block"
-            image={componentImg}
-            />
-            <Concept/>
-            <Concept/>
-            <Concept/>
+            <Concept {...CORE_CONCEPTS[0]}/>
+            <Concept {...CORE_CONCEPTS[1]}/>
+            <Concept {...CORE_CONCEPTS[2]}/>
+            <Concept {...CORE_CONCEPTS[3]}/>
           </ul>
         </section>
-        <h2>Time to get started!</h2>
+        <section id='examples'>
+         <h2>Example</h2>
+         <menu>
+          <TabButton>Component</TabButton>
+          <TabButton>JSX</TabButton>
+          <TabButton>Props</TabButton>
+          <TabButton>State</TabButton>
+         </menu>
+        </section>
       </main>
     </div>
   );
