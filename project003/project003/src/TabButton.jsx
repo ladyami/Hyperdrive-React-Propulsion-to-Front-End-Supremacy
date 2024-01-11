@@ -1,15 +1,13 @@
 import React from 'react'
 
-const TabButton = ({children}) => {
+const TabButton = ({children, onSelect}) => {
 
-  function handleClick() {
-    
-  }
+ 
 
 
   return (
     <li>
-    <button onClick={handleClick}>{children}</button>
+    <button onClick={onSelect}>{children}</button>
     </li>
   )
 }

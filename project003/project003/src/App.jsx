@@ -12,6 +12,11 @@ function genRandomInt(max) {
 
 
 function App() {
+
+  function onSelect(selectedButton) {
+    console.log("selectedButton");
+  }
+
   return (
     <div>
       <header>
@@ -35,10 +40,10 @@ function App() {
         <section id='examples'>
          <h2>Example</h2>
          <menu>
-          <TabButton>Component</TabButton>
-          <TabButton>JSX</TabButton>
-          <TabButton>Props</TabButton>
-          <TabButton>State</TabButton>
+          <TabButton onSelect={() => onSelect('component')}>Component</TabButton>
+          <TabButton onSelect={() => onSelect('JsX')}>JSX</TabButton>
+          <TabButton onSelect={() => onSelect('Props')}>Props</TabButton>
+          <TabButton onSelect={() => onSelect('state')}>State</TabButton>
          </menu>
         </section>
       </main>
