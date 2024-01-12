@@ -13,9 +13,16 @@ function genRandomInt(max) {
 
 function App() {
 
+  
+  //function onSelect(selectedButton) {
+   // console.log("selectedButton");
+  //}
+ 
   function onSelect(selectedButton) {
-    console.log("selectedButton");
+    //selectedButton = button;
+    console.log(selectedButton); // Log the selected button
   }
+
 
   return (
     <div>
