@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import Concept from './Concept';
 import reactImg from './assets/react-core-concepts.png'
-import componentImg from './assets/components.png'
+//import componentImg from './assets/components.png'
 import { CORE_CONCEPTS } from './data';
 import TabButton from './TabButton';
+
 
 const reactDescription = ['Fundamental', 'Crucial', 'Core'];
 
@@ -14,13 +16,11 @@ function genRandomInt(max) {
 function App() {
 
   
-  //function onSelect(selectedButton) {
-   // console.log("selectedButton");
-  //}
- 
+   const  [selectedTopic, setSelectedTopic] = useState();
+
   function onSelect(selectedButton) {
-    //selectedButton = button;
-    console.log(selectedButton); // Log the selected button
+    setSelectedTopic(selectedButton)
+    console.log(selectedTopic); // Log the selected button
   }
 
 
@@ -52,6 +52,8 @@ function App() {
           <TabButton onSelect={() => onSelect('Props')}>Props</TabButton>
           <TabButton onSelect={() => onSelect('state')}>State</TabButton>
          </menu>
+
+         {selectedTopic}
         </section>
       </main>
     </div>
