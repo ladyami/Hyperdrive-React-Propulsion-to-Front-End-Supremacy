@@ -4,6 +4,7 @@ import reactImg from './assets/react-core-concepts.png'
 //import componentImg from './assets/components.png'
 import { CORE_CONCEPTS } from './data';
 import TabButton from './TabButton';
+import {EXAMPLES} from './data.js';
 
 
 const reactDescription = ['Fundamental', 'Crucial', 'Core'];
@@ -16,11 +17,11 @@ function genRandomInt(max) {
 function App() {
 
   
-   const  [selectedTopic, setSelectedTopic] = useState();
+   const  [selectedTopic, setSelectedTopic] = useState('components');
 
   function onSelect(selectedButton) {
-    setSelectedTopic(selectedButton)
-    console.log(selectedTopic); // Log the selected button
+    setSelectedTopic(selectedButton);
+
   }
 
 
@@ -47,13 +48,19 @@ function App() {
         <section id='examples'>
          <h2>Example</h2>
          <menu>
-          <TabButton onSelect={() => onSelect('component')}>Component</TabButton>
-          <TabButton onSelect={() => onSelect('JsX')}>JSX</TabButton>
-          <TabButton onSelect={() => onSelect('Props')}>Props</TabButton>
+          <TabButton onSelect={() => onSelect('components')}>Component</TabButton>
+          <TabButton onSelect={() => onSelect('jsx')}>JSX</TabButton>
+          <TabButton onSelect={() => onSelect('props')}>Props</TabButton>
           <TabButton onSelect={() => onSelect('state')}>State</TabButton>
          </menu>
 
-         {selectedTopic}
+         <div id='tab-content'>
+          <h3>{EXAMPLES[selectedTopic].title}</h3>
+          <p>{EXAMPLES[selectedTopic].description}</p>
+          <pre>
+            <code> {EXAMPLES[selectedTopic].code} </code>
+          </pre>
+         </div>
         </section>
       </main>
     </div>
