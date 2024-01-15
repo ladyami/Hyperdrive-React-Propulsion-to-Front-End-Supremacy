@@ -17,6 +17,24 @@ app.use((req, res, next) => {
   console.log(`${req.method} ${req.url} ${delta}ms`);
 });
 
+app.use(express.json());
+
+app.post('/fruits', (req, res) => {
+
+if(!req.body.name){
+res.status(400).json({
+  error: 'Missing  fruits  name '
+})
+}
+
+const newFruit ={
+name: req.body.name,
+id: fruits.length
+};
+fruits.push(newFruit);
+res.json(newFruit)
+});
+
 app.get("/fruits", (req, res) => {
   res.json(fruits);
 });
