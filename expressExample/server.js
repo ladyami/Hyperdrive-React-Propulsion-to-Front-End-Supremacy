@@ -10,6 +10,13 @@ const fruits = [
   { id: 4, name: "Mango", price: 0.9 },
 ];
 
+app.use((req, res, next) => {
+  const start = Date.now();
+  next();
+  const delta = Date.now() - start;
+  console.log(`${req.method} ${req.url} ${delta}ms`);
+});
+
 app.get("/fruits", (req, res) => {
   res.json(fruits);
 });
