@@ -17,7 +17,7 @@ function genRandomInt(max) {
 function App() {
 
   
-   const  [selectedTopic, setSelectedTopic] = useState('components');
+   const  [selectedTopic, setSelectedTopic] = useState();
 
   function onSelect(selectedButton) {
     setSelectedTopic(selectedButton);
@@ -53,14 +53,15 @@ function App() {
           <TabButton onSelect={() => onSelect('props')}>Props</TabButton>
           <TabButton onSelect={() => onSelect('state')}>State</TabButton>
          </menu>
-
-         <div id='tab-content'>
+         {!selectedTopic ? <p>Please select a Topic.</p> : 
+         (<div id='tab-content'>
           <h3>{EXAMPLES[selectedTopic].title}</h3>
           <p>{EXAMPLES[selectedTopic].description}</p>
           <pre>
             <code> {EXAMPLES[selectedTopic].code} </code>
           </pre>
-         </div>
+         </div> )}
+         
         </section>
       </main>
     </div>
