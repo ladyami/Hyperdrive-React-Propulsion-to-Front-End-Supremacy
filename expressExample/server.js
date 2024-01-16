@@ -22,7 +22,7 @@ app.use(express.json());
 app.post('/fruits', (req, res) => {
 
 if(!req.body.name){
-res.status(400).json({
+ return res.status(400).json({
   error: 'Missing  fruits  name '
 })
 }
