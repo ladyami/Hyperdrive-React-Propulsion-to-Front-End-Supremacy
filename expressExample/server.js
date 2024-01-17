@@ -1,4 +1,6 @@
 const express = require("express");
+const messagesController = require('./controllers/messages.controller');
+//const messagesController = require('./controllers/messages.controller');
 const app = express();
 const PORT = 3000;
 
@@ -48,13 +50,9 @@ app.get("/fruits/:fruitId", (req, res) => {
   }
 });
 
-app.get("/messages", (req, res) => {
-  res.send("this is messages!");
-});
+app.get("/messages", messagesController.getMessages  );
 
-app.post("/messaages", (req, res) => {
-  console.log("this is post messages!");
-});
+app.post("/messages", messagesController.postMessage );
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}...`);
